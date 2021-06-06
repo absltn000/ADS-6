@@ -11,9 +11,7 @@ class BST {
     dot* left;
     dot* right;
     int count;
-    dot(T t) :left(nullptr), right(nullptr), count(1) {
-      this->t = t;
-    }
+    dot(T t) :t(t), left(nullptr), right(nullptr), count(1) {}
   };
   dot* root;
 
