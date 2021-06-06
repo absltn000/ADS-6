@@ -5,20 +5,20 @@
 
 template<typename T>
 class BST {
-private:
+ private:
   struct dot {
     T t;
     dot* left;
     dot* right;
     int count;
-    dot(T m) :left(nullptr), right(nullptr), count(1) {
-      t = m;
+    dot(T t) :left(nullptr), right(nullptr), count(1) {
+      this->t = t;
     }
   };
   dot* root;
 
-public:
-  BST() : root(nullptr) {};
+ public:
+  BST() : root(nullptr) {}
 
   void insert(T m) {
     root = insert(root, m);
@@ -29,11 +29,9 @@ public:
     while (y != nullptr) {
       if (x == y->t) {
         return y->count;
-      }
-      else if (x > y->t) {
+      } else if (x > y->t) {
         y = y->right;
-      }
-      else {
+      } else {
         y = y->left;
       }
     }
@@ -56,7 +54,7 @@ public:
           return;
         } else {
           y = y->right;
-        } 
+        }
       } else {
         if (y->left == nullptr) {
           y->left = new dot(x);
@@ -74,8 +72,7 @@ public:
   }
 
   int hight(dot* p) {
-    if ((p->left != nullptr) && (p->right != nullptr))
-    {
+    if ((p->left != nullptr) && (p->right != nullptr)) {
       int hr = hight(p->right);
       int hl = hight(p->left);
       return (hr > hl ? hr + 1 : hl + 1);
@@ -84,7 +81,7 @@ public:
     } else if (p->right != nullptr) {
       return hight(p->right) + 1;
     } else {
-      return 0;
+      return 1;
     }
   }
 };
