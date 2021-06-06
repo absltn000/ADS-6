@@ -15,7 +15,7 @@ class BST {
     dot(T m) : height(1), left(nullptr), right(nullptr), count(1) {
      t = m;
     }
-  }
+  };
   dot* root;
 
  public:
