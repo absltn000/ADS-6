@@ -1,6 +1,7 @@
 // Copyright 2021 NNTU-CS
 #ifndef INCLUDE_BST_H_
 #define INCLUDE_BST_H_
+#include <string>
 
 template<typename T>
 class BST {
@@ -11,8 +12,10 @@ class BST {
     dot* left;
     dot* right;
     int count;
-    dot(T m) :t(m), height(1), left(nullptr), right(nullptr), count(1) {}
-  };
+    dot(T m) : height(1), left(nullptr), right(nullptr), count(1) {
+     t = m;
+    }
+  }
   dot* root;
 
  public:
