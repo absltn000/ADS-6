@@ -11,12 +11,11 @@ class BST {
     dot* left;
     dot* right;
     int count;
-    dot(T t) :t(t), left(nullptr), right(nullptr), count(1) {}
   };
   dot* root;
 
  public:
-  BST() : root(nullptr) {}
+  BST() : root(nullptr) {};
 
   void insert(T m) {
     root = insert(root, m);
@@ -38,7 +37,11 @@ class BST {
 
   void search2(std::string x) {
     if (root == nullptr) {
-      root = new dot(x);
+      root = new dot;
+      root->left = nullptr;
+      root->right = nullptr;
+      root->count = 1;
+      root->t = x;
       return;
     }
     dot* y = root;
@@ -48,14 +51,24 @@ class BST {
         return;
       } else if (x > y->t) {
         if (y->right == nullptr) {
-          y->right = new dot(x);
+          dot* r = new dot;
+          r->left = nullptr;
+          r->right = nullptr;
+          r->count = 1;
+          r->t = x;
+          y->right = r;
           return;
         } else {
           y = y->right;
         }
       } else {
         if (y->left == nullptr) {
-          y->left = new dot(x);
+          dot* r = new dot;
+          r->left = nullptr;
+          r->right = nullptr;
+          r->count = 1;
+          r->t = x;
+          y->left = r;
           return;
         } else {
           y = y->left;
@@ -66,7 +79,7 @@ class BST {
   }
 
   int depth() {
-    return hight(root) - 1;
+    return hight(root);
   }
 
   int hight(dot* p) {
