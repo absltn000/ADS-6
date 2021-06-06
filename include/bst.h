@@ -15,7 +15,7 @@ class BST {
   dot* root;
 
  public:
-  BST() : root(nullptr) {};
+  BST() : root(nullptr) {}
 
   void insert(T m) {
     root = insert(root, m);
@@ -92,7 +92,7 @@ class BST {
     } else if (p->right != nullptr) {
       return hight(p->right) + 1;
     } else {
-      return 1;
+      return 0;
     }
   }
 };
