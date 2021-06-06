@@ -2,7 +2,6 @@
 #ifndef INCLUDE_BST_H_
 #define INCLUDE_BST_H_
 #include <string>
-#include <minmax.h>
 
 template<typename T>
 class BST {
@@ -75,14 +74,17 @@ public:
   }
 
   int hight(dot* p) {
-    if ((p->left != nullptr) && (p->right != nullptr)) {
-      return max(hight(p->left), hight(p->right)) + 1;
+    if ((p->left != nullptr) && (p->right != nullptr))
+    {
+      int hr = hight(p->right);
+      int hl = hight(p->left);
+      return (hr > hl ? hr + 1 : hl + 1);
     } else if (p->left != nullptr) {
       return hight(p->left) + 1;
     } else if (p->right != nullptr) {
       return hight(p->right) + 1;
     } else {
-      return 1;
+      return 0;
     }
   }
 };
